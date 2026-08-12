@@ -1,0 +1,150 @@
+<!doctype html>
+<html>
+ <head>
+  <title>IntelliJ Markdown Preview</title>
+  <style>/* Reworked by IntelliJ Team The MIT License (MIT) Copyright (c) JetBrains Adapted from https://github.com/sindresorhus/github-markdown-css The MIT License (MIT) Copyright (c) Sindre Sorhus &lt;sindresorhus@gmail.com&gt; (sindresorhus.com) Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */ @font-face { font-family: octicons-anchor; src: url(data:font/woff;charset=utf-8;base64,d09GRgABAAAAAAYcAA0AAAAACjQAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABGRlRNAAABMAAAABwAAAAca8vGTk9TLzIAAAFMAAAARAAAAFZG1VHVY21hcAAAAZAAAAA+AAABQgAP9AdjdnQgAAAB0AAAAAQAAAAEACICiGdhc3AAAAHUAAAACAAAAAj//wADZ2x5ZgAAAdwAAADRAAABEKyikaNoZWFkAAACsAAAAC0AAAA2AtXoA2hoZWEAAALgAAAAHAAAACQHngNFaG10eAAAAvwAAAAQAAAAEAwAACJsb2NhAAADDAAAAAoAAAAKALIAVG1heHAAAAMYAAAAHwAAACABEAB2bmFtZQAAAzgAAALBAAAFu3I9x/Nwb3N0AAAF/AAAAB0AAAAvaoFvbwAAAAEAAAAAzBdyYwAAAADP2IQvAAAAAM/bz7t4nGNgZGFgnMDAysDB1Ml0hoGBoR9CM75mMGLkYGBgYmBlZsAKAtJcUxgcPsR8iGF2+O/AEMPsznAYKMwIkgMA5REMOXicY2BgYGaAYBkGRgYQsAHyGMF8FgYFIM0ChED+h5j//yEk/3KoSgZGNgYYk4GRCUgwMaACRoZhDwCs7QgGAAAAIgKIAAAAAf//AAJ4nHWMMQrCQBBF/0zWrCCIKUQsTDCL2EXMohYGSSmorScInsRGL2DOYJe0Ntp7BK+gJ1BxF1stZvjz/v8DRghQzEc4kIgKwiAppcA9LtzKLSkdNhKFY3HF4lK69ExKslx7Xa+vPRVS43G98vG1DnkDMIBUgFN0MDXflU8tbaZOUkXUH0+U27RoRpOIyCKjbMCVejwypzJJG4jIwb43rfl6wbwanocrJm9XFYfskuVC5K/TPyczNU7b84CXcbxks1Un6H6tLH9vf2LRnn8Ax7A5WQAAAHicY2BkYGAA4teL1+yI57f5ysDNwgAC529f0kOmWRiYVgEpDgYmEA8AUzEKsQAAAHicY2BkYGB2+O/AEMPCAAJAkpEBFbAAADgKAe0EAAAiAAAAAAQAAAAEAAAAAAAAKgAqACoAiAAAeJxjYGRgYGBhsGFgYgABEMkFhAwM/xn0QAIAD6YBhwB4nI1Ty07cMBS9QwKlQapQW3VXySvEqDCZGbGaHULiIQ1FKgjWMxknMfLEke2A+IJu+wntrt/QbVf9gG75jK577Lg8K1qQPCfnnnt8fX1NRC/pmjrk/zprC+8D7tBy9DHgBXoWfQ44Av8t4Bj4Z8CLtBL9CniJluPXASf0Lm4CXqFX8Q84dOLnMB17N4c7tBo1AS/Qi+hTwBH4rwHHwN8DXqQ30XXAS7QaLwSc0Gn8NuAVWou/gFmnjLrEaEh9GmDdDGgL3B4JsrRPDU2hTOiMSuJUIdKQQayiAth69r6akSSFqIJuA19TrzCIaY8sIoxyrNIrL//pw7A2iMygkX5vDj+G+kuoLdX4GlGK/8Lnlz6/h9MpmoO9rafrz7ILXEHHaAx95s9lsI7AHNMBWEZHULnfAXwG9/ZqdzLI08iuwRloXE8kfhXYAvE23+23DU3t626rbs8/8adv+9DWknsHp3E17oCf+Z48rvEQNZ78paYM38qfk3v/u3l3u3GXN2Dmvmvpf1Srwk3pB/VSsp512bA/GG5i2WJ7wu430yQ5K3nFGiOqgtmSB5pJVSizwaacmUZzZhXLlZTq8qGGFY2YcSkqbth6aW1tRmlaCFs2016m5qn36SbJrqosG4uMV4aP2PHBmB3tjtmgN2izkGQyLWprekbIntJFing32a5rKWCN/SdSoga45EJykyQ7asZvHQ8PTm6cslIpwyeyjbVltNikc2HTR7YKh9LBl9DADC0U/jLcBZDKrMhUBfQBvXRzLtFtjU9eNHKin0x5InTqb8lNpfKv1s1xHzTXRqgKzek/mb7nB8RZTCDhGEX3kK/8Q75AmUM/eLkfA+0Hi908Kx4eNsMgudg5GLdRD7a84npi+YxNr5i5KIbW5izXas7cHXIMAau1OueZhfj+cOcP3P8MNIWLyYOBuxL6DRylJ4cAAAB4nGNgYoAALjDJyIAOWMCiTIxMLDmZedkABtIBygAAAA==) format('woff'); } body { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; font-family: Helvetica, Arial, freesans, sans-serif; font-size: 14px; line-height: 1.6; word-wrap: break-word; margin: 0 2em; } strong { font-weight: bold; } img { border: 0; } input { color: inherit; font: inherit; margin: 0; line-height: normal; } html input[disabled] { cursor: default; } input[type="checkbox"] { box-sizing: border-box; padding: 0; } body * { box-sizing: border-box; } input { font: 13px/1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; } a { text-decoration: none; } a:hover, a:active { text-decoration: underline; } hr { height: 1px; padding: 0; margin: 20px 0; border: 0 none; } hr:before { display: table; content: ""; } hr:after { display: table; clear: both; content: ""; } blockquote { margin: 0; } ul, ol { padding: 0; margin-top: 0; margin-bottom: 0; } ol ol, ul ol { list-style-type: lower-roman; } ul ul ol, ul ol ol, ol ul ol, ol ol ol { list-style-type: lower-alpha; } dd { margin-left: 0; } .octicon { font: normal normal normal 16px/1 octicons-anchor; display: inline-block; text-decoration: none; text-rendering: auto; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; } .octicon-link:before { content: '\f05c'; } .markdown-body &gt; *:first-child { margin-top: 0 !important; } .markdown-body &gt; *:last-child { margin-bottom: 0 !important; } .anchor { position: absolute; top: 0; left: 0; display: block; padding-right: 6px; padding-left: 30px; margin-left: -30px; } .anchor:focus { outline: none; } h1, h2, h3, h4, h5, h6 { position: relative; margin-top: 1em; margin-bottom: 16px; font-weight: bold; line-height: 1.4; } h1 .octicon-link, h2 .octicon-link, h3 .octicon-link, h4 .octicon-link, h5 .octicon-link, h6 .octicon-link { display: none; color: #000; vertical-align: middle; } h1:hover .anchor, h2:hover .anchor, h3:hover .anchor, h4:hover .anchor, h5:hover .anchor, h6:hover .anchor { padding-left: 8px; margin-left: -30px; text-decoration: none; } h1:hover .anchor .octicon-link, h2:hover .anchor .octicon-link, h3:hover .anchor .octicon-link, h4:hover .anchor .octicon-link, h5:hover .anchor .octicon-link, h6:hover .anchor .octicon-link { display: inline-block; } h1 { font-size: 2.2em; padding-top: 0.6em; } h1 .anchor { line-height: 1; } h2 { font-size: 1.8em; line-height: 1.2; padding-top: 0.6em; } h2 .anchor { line-height: 1.2; } h3 { font-size: 1.3em; line-height: 1; padding-top: 0.6em; } h3 .anchor { line-height: 1.2; } h4 { font-size: 1em; } h4 .anchor { line-height: 1.2; } h5 { font-size: 1em; } h5 .anchor { line-height: 1.1; } h6 { font-size: 1em; } h6 .anchor { line-height: 1.1; } p, blockquote, ul, ol, dl, table, pre { margin-top: 16px; margin-bottom: 16px; } pre.frontmatter-header { background-color: transparent; margin: 0; padding: 0; } ul, ol { padding-left: 2em; } ul ul, ul ol, ol ol, ol ul { margin-top: 0; margin-bottom: 0; } li &gt; p { margin-top: 0; margin-bottom: 0; } dl { padding: 0; } dl dt { padding: 0; margin-top: 16px; font-size: 1em; font-style: italic; font-weight: bold; } dl dd { padding: 0 16px; margin-bottom: 16px; } blockquote { padding: 10px 10px 10px 16px; border-left: 2px solid; border-radius: 0 3px 3px 0; } blockquote &gt; :first-child { margin-top: 0; } blockquote &gt; :last-child { margin-bottom: 0; } table { display: block; width: 100%; overflow: auto; word-break: normal; border-collapse: collapse; border-spacing: 0; font-size: 1em; } table th { font-weight: bold; } table th, table td { padding: 6px 13px; background: transparent; } table tr { border-top: 1px solid; } img { max-width: 100%; box-sizing: border-box; } code { font: 0.9em "JetBrains Mono", Consolas, "Liberation Mono", Menlo, Courier, monospace; padding: 0.2em 0.4em; margin: 2px; border-radius: 3px; } pre &gt; code { padding: 0; margin: 0; font-size: 100%; word-break: normal; white-space: pre; background: transparent; border: 0; } .highlight { margin-bottom: 16px; } .highlight pre, pre { font: 0.85em "JetBrains Mono", Consolas, "Liberation Mono", Menlo, Courier, monospace; padding: 16px; overflow: auto; line-height: 1.45; border-radius: 3px; } pre code { display: inline; max-width: initial; padding: 0; margin: 0; overflow: initial; line-height: inherit; word-wrap: normal; background-color: transparent; border: 0; } pre code:before, pre code:after { content: normal; } kbd { font: 0.9em "JetBrains Mono", Consolas, "Liberation Mono", Menlo, Courier, monospace; padding: 0.2em 0.4em; margin: 2px; border-radius: 3px; } .task-list-item { list-style-type: none; } .task-list-item + .task-list-item { margin-top: 3px; } .task-list-item input { margin: 0 0.35em 0.25em -0.6em; vertical-align: middle; } :checked + .radio-label { z-index: 1; position: relative; } span.user-del { text-decoration: line-through; } ::-webkit-scrollbar { width: 6px; height: 6px; } ::-webkit-scrollbar-thumb { -webkit-border-radius: 10px; } ::-webkit-scrollbar-track:vertical { -webkit-box-shadow: -1px 0 0 #ededed; } ::-webkit-scrollbar-track { background-color: transparent; } ::-webkit-scrollbar { width: 6px; }</style>
+  <style>body { background-color: rgba(34, 36, 54, 255.0); font-size: 13px !important; } body, p, blockquote, ul, ol, dl, table, pre, code, tr { color: rgba(200, 211, 245, 255.0); } a { color: rgba(116, 160, 241, 255.0); } table td, table th { border: 1px solid rgba(200, 211, 245, 255.0); } hr { background-color: rgba(200, 211, 245, 255.0); } kbd, tr { border: 1px solid rgba(200, 211, 245, 255.0); } h6 { color: rgba(169, 184, 232, 255.0); } blockquote { border-left: 2px solid rgba(116, 160, 241, 0.4); } blockquote, code, pre { background-color: rgba(212, 222, 231, 0.09803921568627451); } ::-webkit-scrollbar { width: 10px; height: 10px; background-color: rgba(63, 68, 68, 1.000000); } ::-webkit-scrollbar-track { background-color: rgba(34, 54, 54, 1.000000); } ::-webkit-scrollbar-track:hover { background-color: rgba(34, 54, 54, 1.000000); } ::-webkit-scrollbar-thumb { background-color: rgba(79, 190, 190, 0.752941); border-radius: 0px; border-width: 1px; border-style: solid; border-color: rgba(34, 54, 54, 1.000000); background-clip: padding-box; outline: 1px solid rgba(56, 56, 56, 0.278431); outline-offset: -1px; } ::-webkit-scrollbar-thumb:hover { background-color: rgba(79, 190, 190, 1.000000); border-radius: 0px; border-width: 1px; border-style: solid; border-color: rgba(34, 54, 54, 1.000000); background-clip: padding-box; outline: 1px solid rgba(56, 56, 56, 0.349020); outline-offset: -1px; } ::-webkit-scrollbar-corner { background-color: rgba(63, 68, 68, 1.000000); } ::-webkit-scrollbar-button { display:none; }</style>
+  <style>/* Copyright 2000-2021 JetBrains s.r.o. and contributors. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file. */ .code-fence-highlighter-copy-button { display: flex; position: absolute; float: left; margin-left: -1em; margin-top: -1em; } .code-fence-highlighter-copy-button-icon { max-width: 1em; } .code-fence:hover .code-fence-highlighter-copy-button-icon { /*noinspection CssUnknownTarget*/ content: url("copy-button-copy-icon.png"); } .code-fence:hover .code-fence-highlighter-copy-button:hover .code-fence-highlighter-copy-button-icon { /*noinspection CssUnknownTarget*/ content: url("copy-button-copy-icon-hovered.png"); cursor: pointer; }</style>
+  <style>/* Copyright 2000-2021 JetBrains s.r.o. and contributors. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file. */ .run-icon &gt; img { max-width: 1em; vertical-align: text-top; margin-right: 0.3em; } .code-block { position: absolute; left: 1em; } .hidden { display: none; }</style>
+ </head>
+ <body>
+  <div md-src-pos="0..4801">
+   <h1 id="人工智能程序设计大作业之掼蛋" md-src-pos="0..16">人工智能程序设计大作业之掼蛋</h1>
+   <h2 id="阶段一" md-src-pos="19..25">阶段一</h2>
+   <h3 id="实现目标基于规则的策略实现ai的自动打牌-" md-src-pos="26..55">实现目标：基于规则的策略实现AI的自动打牌</h3>
+   <h3 id="实现方式pygame可视化交互界面-" md-src-pos="56..82">实现方式：Pygame可视化交互界面</h3>
+   <h3 id="规则介绍-" md-src-pos="83..97">规则介绍：</h3>
+   <ol md-src-pos="98..189">
+    <li md-src-pos="98..140">若自己为下家则必须与上家出同种类型且更大；若为上家，则可以任意出牌 <br></li>
+    <li md-src-pos="141..189">先出的一方为上家，跟牌的一方为下家；若某一回合无法接牌，选择pass，则对方自动成为上 家</li>
+   </ol>
+   <h3 id="牌型种类-" md-src-pos="190..203">牌型种类：</h3>
+   <ol md-src-pos="204..578">
+    <li md-src-pos="204..263">单张<br>
+      A &gt; K &gt; Q&gt; J &gt; 10 &gt; 9 &gt; 8 &gt;7 &gt; 6 &gt; 5 &gt; 4 &gt; 3 &gt; 2</li>
+    <li md-src-pos="264..318">对子<br>
+      22 &gt; AA &gt; KK &gt; ... &gt; 33，不计花色，上家出33，必须出44或以上</li>
+    <li md-src-pos="319..358">顺子<br>
+      连续的5张牌，不计花色，例如：23456，10JQKA</li>
+    <li md-src-pos="359..396">三连对<br>
+      连续的3条对子，例如：778899，445566等</li>
+    <li md-src-pos="397..434">三同张<br>
+      3张一样的牌，例如222，AAA，666，888等</li>
+    <li md-src-pos="435..475">三带对<br>
+      3张一样的牌带2张一样的牌，例如22233，AAAJJ等</li>
+    <li md-src-pos="476..517">三同连张<br>
+      两个连续的三同张，例如 222 333，777 888等</li>
+    <li md-src-pos="518..578">炸弹<br>
+      四张或四张以上牌点相同的牌，如：2222、33333、444444等 注意：此处不考虑同花顺的存在</li>
+   </ol>
+   <h3 id="牌型大小-" md-src-pos="579..592">牌型大小：</h3>
+   <ol md-src-pos="593..877">
+    <li md-src-pos="593..676">牌点由大到小排列为：2、Ａ、Ｋ、Ｑ、Ｊ、10、 ９、８、７、６、５、４、３<br>
+      注意此处级牌为2因此2才是最大的，在一般的大小排序中2是最小的<br></li>
+    <li md-src-pos="677..816">相同牌型之间的大小比较：<br>
+     <ol md-src-pos="700..816">
+      <li md-src-pos="700..746">单张、对子、三同张、三连对、三同连张、顺子，以上六种牌型直接根据牌点确定大小。<br></li>
+      <li md-src-pos="750..784">三带对：仅比较三同张牌点大小，不比较所带对子牌点大小。<br></li>
+      <li md-src-pos="788..816">炸弹：张数多者大，张数相同则比较牌点大小。<br></li>
+     </ol></li>
+    <li md-src-pos="817..877">不同牌型之间的大小比较<br>
+      炸弹 &gt; 其他7种牌型（单张、对子、三同张、三带对、三连对、三同连张和顺子）</li>
+   </ol>
+   <h3 id="实现具体功能-" md-src-pos="878..893">实现具体功能：</h3>
+   <ol md-src-pos="894..1172">
+    <li md-src-pos="894..1014">牌型识别：<br>
+      AI需要能够识别所有可能的牌型，包括单张、对子、顺子、连对、三带、炸弹<br>
+      这要求程序能够分析手中的牌并确定所有可能的合法出牌选项</li>
+    <li md-src-pos="1015..1102">出牌规则：<br>
+      定义一套出牌规则，让AI决定何时跟牌、何时主动出牌<br>
+      如果AI是上家，它可能会选择较弱的牌型出牌；如果是下家，它可能需要选择能够大于上家的牌型</li>
+    <li md-src-pos="1103..1172">优先级设置：<br>
+      为AI设置不同的牌型和出牌策略的优先级。通常情况下，炸弹等强力牌型应当作为最后的手段，除非该出牌显著提高胜率。</li>
+   </ol>
+   <h3 id="目标实现效果基于规则-" md-src-pos="1173..1194">目标实现效果（基于规则）：</h3>
+   <ol md-src-pos="1195..1369">
+    <li md-src-pos="1195..1241">可以实现可视化界面用户通过鼠标点击牌实现上下移动，点击出牌实现出牌与自己所拥有牌的更新</li>
+    <li md-src-pos="1242..1271">由于只有用户与AI进行打牌而且仅有一副牌因此双方明牌</li>
+    <li md-src-pos="1272..1318">系统判断玩家所打出的牌是合理的牌型，并且要么牌型可接，要么玩家是上家，才能完成出牌操作</li>
+    <li md-src-pos="1319..1352">否则提示玩家”无效出牌“，玩家修改牌序列，或选择pass弃牌</li>
+    <li md-src-pos="1353..1369">最后谁先打完牌就显示谁胜利</li>
+   </ol>
+   <h3 id="基本框架思路介绍-" md-src-pos="1370..1387">基本框架思路介绍：</h3>
+   <ol md-src-pos="1388..1692">
+    <li md-src-pos="1388..1436">先用pygame模块搭建好用户交互界面并且导入相应的牌所对应的图片，构建一个牌类class</li>
+    <li md-src-pos="1437..1483">对54张牌进行随机打乱，各分一半，构建双方牌库的列表，然后对双方牌库进行降序排序并显示</li>
+    <li md-src-pos="1484..1514">随机设定谁先出牌（上家），上家出牌一般从小到大进行出牌</li>
+    <li md-src-pos="1515..1601">玩家出牌之后如果AI存在比玩家强的牌则出，如果没有则pass<br>
+      如果AI手中只有炸弹，则定下规则当玩家手中牌数少于6张或者AI手中牌数少于10张时才跟牌否则留存</li>
+    <li md-src-pos="1602..1692">构建一个牌库列表，判断玩家和AI手上牌的种类及其个数<br>
+      （单张、对子、三同张、三带对、三连对、三同连张、顺子和炸弹及其个数）<br>
+      每一次出牌之后都立马更新牌库并显示</li>
+   </ol>
+   <h3 id="主要类和函数介绍-" md-src-pos="1693..1710">主要类和函数介绍：</h3>
+   <ol md-src-pos="1711..3339">
+    <li md-src-pos="1711..2559">这里一共创建了5个类<br><img src="http://localhost:63342/markdownPreview/2122674402/fileSchemeResource/bbeb2f904de83d66062e6038eb6e203e-%E4%BA%94%E4%B8%AA%E7%B1%BB.png?_ijt=424cb7mupue8fdtukkqs6kt5i6" alt="" title="五个类" __idea-generated="true" md-src-pos="1729..1751" data-original-src="file:/E:/大学课程/大一下/人工智能程序设计/程序设计/AIProgramDesign/markdown插入图片/%E4%BA%94%E4%B8%AA%E7%B1%BB.png"><br>
+      分别代表一张牌、一手牌、一整副牌（因为一般的掼蛋游戏是有两副完整的牌的）、玩家和按钮<br>
+      （1）牌类的存在是为了当可视化，每一张牌都是一个独立的对象，当打出牌的时候，需要确定打出的是哪一张牌<br><img src="http://localhost:63342/markdownPreview/2122674402/fileSchemeResource/c2cd3b57841ffcb4f223040165e9765a-%E7%89%8C%E7%B1%BB%E5%B1%9E%E6%80%A7.png?_ijt=424cb7mupue8fdtukkqs6kt5i6" alt="" title="牌类属性" __idea-generated="true" md-src-pos="1858..1882" data-original-src="file:/E:/大学课程/大一下/人工智能程序设计/程序设计/AIProgramDesign/markdown插入图片/%E7%89%8C%E7%B1%BB%E5%B1%9E%E6%80%A7.png"><br>
+      这里面每一张牌的属性具体有点数、花色、图片的路径、牌的名字、点数对应的大小、花色对应的大小、牌的大小<br>
+      牌类具体的函数只有两个，一个是确定这张牌对应的图片路径，另一个是确定这张牌对应的名字<br>
+      （2）手牌类的存在是为了确定玩家的手牌有哪些内容，其中有一个Hands.cards[]列表存储每一个牌对象<br>
+      （3）一整副牌类存在是为了初始化一开始所有的54张牌并利用random.shuffle()函数将其随机打乱切分一般分别分给两个Player玩家<br>
+      （4）玩家类<br><img src="http://localhost:63342/markdownPreview/2122674402/fileSchemeResource/3983bdd1d9303dc683b0685e8b9795b2-%E7%8E%A9%E5%AE%B6%E7%B1%BB.png?_ijt=424cb7mupue8fdtukkqs6kt5i6" alt="" title="玩家类" __idea-generated="true" md-src-pos="2134..2156" data-original-src="file:/E:/大学课程/大一下/人工智能程序设计/程序设计/AIProgramDesign/markdown插入图片/%E7%8E%A9%E5%AE%B6%E7%B1%BB.png"><br>
+      玩家类里面主要包括玩家手里的手牌、玩家头像位置、玩家所有手牌的位置列表、玩家所有牌是否要准备出牌了、以及玩家当前处于起牌/跟牌阶段<br>
+      其附属的函数包括初始化当前的手牌、设置当前所有牌对应的位置并将其画出、对当前所有的牌搜索空间进行搜索并且得出所有牌型种类以及允许出的牌型列表<br><img src="http://localhost:63342/markdownPreview/2122674402/fileSchemeResource/f89dc5c7b7bb38b644b3ab04dcc9bf4e-%E6%90%9C%E7%B4%A2%E7%8E%A9%E5%AE%B6%E7%9A%84%E7%89%8C%E7%A9%BA%E9%97%B4.png?_ijt=424cb7mupue8fdtukkqs6kt5i6" alt="" title="搜索玩家的牌空间" __idea-generated="true" md-src-pos="2306..2338" data-original-src="file:/E:/大学课程/大一下/人工智能程序设计/程序设计/AIProgramDesign/markdown插入图片/%E6%90%9C%E7%B4%A2%E7%8E%A9%E5%AE%B6%E7%9A%84%E7%89%8C%E7%A9%BA%E9%97%B4.png"><br>
+      返回牌的预出牌种类：0代表不符合出牌要求，1代表单张，2代表对子，3代表三同张，4代表顺子，5代表三连对，6代表三带二，7代表三同连张，8代表炸弹<br>
+      （5）还有一个按钮类<br>
+      按钮类的存在主要是为了有：<br>
+      RESET键（重置键为了玩家将点起来的牌放下去）<br>
+      出牌键（将点起来的牌出掉）<br>
+      不出键（在跟牌阶段放弃出牌）<br>
+      建议键（当前还未实现，之后会对程序继续更新会加入给玩家推荐出牌的功能）<br></li>
+    <li md-src-pos="2560..2671">画出基本图像的函数<br><img src="http://localhost:63342/markdownPreview/2122674402/fileSchemeResource/30b285f55c2f5902a5fe97086d083694-%E7%94%BB%E5%87%BA%E5%9F%BA%E6%9C%AC%E5%9B%BE%E5%83%8F.png?_ijt=424cb7mupue8fdtukkqs6kt5i6" alt="" title="画出基本图像" __idea-generated="true" md-src-pos="2577..2605" data-original-src="file:/E:/大学课程/大一下/人工智能程序设计/程序设计/AIProgramDesign/markdown插入图片/%E7%94%BB%E5%87%BA%E5%9F%BA%E6%9C%AC%E5%9B%BE%E5%83%8F.png"><br>
+      该函数用于画出函数的基本图像，主要包括：<br>
+      背景图、玩家图、AI图、按钮图、玩家和AI手中还有的牌、打出的牌<br></li>
+    <li md-src-pos="2672..2845">如果按下了按钮的函数<br><img src="http://localhost:63342/markdownPreview/2122674402/fileSchemeResource/48250f4baf9bdd706a7a8f6305d441e7-%E6%8C%89%E4%B8%8B%E6%8C%89%E9%92%AE.png?_ijt=424cb7mupue8fdtukkqs6kt5i6" alt="" title="按下按钮" __idea-generated="true" md-src-pos="2690..2714" data-original-src="file:/E:/大学课程/大一下/人工智能程序设计/程序设计/AIProgramDesign/markdown插入图片/%E6%8C%89%E4%B8%8B%E6%8C%89%E9%92%AE.png"><br>
+      如图，由于使用了pygame的模块，因此可以获得按下了按钮之后鼠标所在的位置<br>
+      之前在按钮类里面已经确定了按钮所在的位置，因此可以很轻松判断按到了哪个键并执行相应的操作即可<br><img src="http://localhost:63342/markdownPreview/2122674402/fileSchemeResource/69b39483a0b2cfc83b5d9c894c47425a-%E6%8C%89%E4%B8%8B%E4%B8%89%E4%B8%AA%E6%8C%89%E9%92%AE.png?_ijt=424cb7mupue8fdtukkqs6kt5i6" alt="" title="按下三个按钮" __idea-generated="true" md-src-pos="2813..2841" data-original-src="file:/E:/大学课程/大一下/人工智能程序设计/程序设计/AIProgramDesign/markdown插入图片/%E6%8C%89%E4%B8%8B%E4%B8%89%E4%B8%AA%E6%8C%89%E9%92%AE.png"><br></li>
+    <li md-src-pos="2846..2941">主玩家、AI的起牌阶段与跟牌阶段<br><img src="http://localhost:63342/markdownPreview/2122674402/fileSchemeResource/feeea97b63061685cf0389a867f23c3c-%E5%9B%9B%E4%B8%AA%E9%98%B6%E6%AE%B5.png?_ijt=424cb7mupue8fdtukkqs6kt5i6" alt="" title="四个阶段" __idea-generated="true" md-src-pos="2870..2894" data-original-src="file:/E:/大学课程/大一下/人工智能程序设计/程序设计/AIProgramDesign/markdown插入图片/%E5%9B%9B%E4%B8%AA%E9%98%B6%E6%AE%B5.png"><br>
+      此处有四个函数主要写的就是主玩家与AI分别是起牌阶段和跟牌阶段所要执行的命令<br></li>
+    <li md-src-pos="2942..3219">AI起牌阶段的规则<br><img src="http://localhost:63342/markdownPreview/2122674402/fileSchemeResource/f0999d749f44786335a52c07523c42a3-AI%E8%B5%B7%E7%89%8C%E9%98%B6%E6%AE%B5%E8%A7%84%E5%88%99.png?_ijt=424cb7mupue8fdtukkqs6kt5i6" alt="" title="AI起牌阶段规则" __idea-generated="true" md-src-pos="2959..2991" data-original-src="file:/E:/大学课程/大一下/人工智能程序设计/程序设计/AIProgramDesign/markdown插入图片/AI%E8%B5%B7%E7%89%8C%E9%98%B6%E6%AE%B5%E8%A7%84%E5%88%99.png"><br>
+      这里主要写的是AI起牌阶段的规则，规定如果AI起牌优先级：在不拆开炸弹的前提之下出尽量小的， 顺子（拆完以后还有三连对）&gt;三连对 &gt; 三带二 &gt; 三同张 &gt; 三同连张 &gt; 单张/对子按照0.5概率对分 &gt; 最后炸弹 当然了这个只是规则一，其实debug多了还发现，点数对其也有影响，也可以按照从小到大的顺序与优先级并结合概率来做<br>
+      （此处由于规则过于复杂，此处只是简化，之后对项目进行更新的时候可能会对规则加以改进）<br></li>
+    <li md-src-pos="3220..3339">玩家（主玩家或者AI打出牌）函数<br><img src="http://localhost:63342/markdownPreview/2122674402/fileSchemeResource/7f6863ddc93f8a8c6ef8bf2996becc28-%E6%89%93%E5%87%BA%E7%89%8C.png?_ijt=424cb7mupue8fdtukkqs6kt5i6" alt="" title="打出牌" __idea-generated="true" md-src-pos="3244..3266" data-original-src="file:/E:/大学课程/大一下/人工智能程序设计/程序设计/AIProgramDesign/markdown插入图片/%E6%89%93%E5%87%BA%E7%89%8C.png"><br>
+      这里主要写了玩家打出要出的牌，这里需要获取需要出的牌的列表，并通过另一个函数搜索玩家目前拥有的牌对象并返回牌对象列表最后将其打出<br></li>
+   </ol>
+   <h3 id="项目主要过程介绍-" md-src-pos="3341..3358">项目主要过程介绍：</h3>
+   <ol md-src-pos="3359..3795">
+    <li md-src-pos="3359..3376">设置基本黑白颜色参数<br></li>
+    <li md-src-pos="3377..3407">设置基本窗口大小参数（这里默认窗口就用方形吧）<br></li>
+    <li md-src-pos="3408..3424">初始化Pygame<br></li>
+    <li md-src-pos="3425..3438">设置窗口大小<br></li>
+    <li md-src-pos="3439..3456">初始化按钮类、玩家类<br></li>
+    <li md-src-pos="3457..3487">初始化所有的牌、玩家和AI的牌，各获得27张牌<br></li>
+    <li md-src-pos="3488..3504">初始化出牌区的位置<br></li>
+    <li md-src-pos="3505..3516">确定牌权<br></li>
+    <li md-src-pos="3517..3559">初始化上一名玩家出的牌（存储的是对象）以及牌型（存储的是对应的点大小）<br></li>
+    <li md-src-pos="3560..3770">进入循环：<br>
+      &nbsp; 判定赢家<br>
+      &nbsp; 条件判断：<br>
+      &nbsp; &nbsp; &nbsp; 主玩家起牌阶段 <br>
+      &nbsp; &nbsp; &nbsp; AI起牌阶段 <br>
+      &nbsp; &nbsp; &nbsp; 主玩家跟牌阶段<br>
+      &nbsp; &nbsp; &nbsp; AI跟牌阶段<br>
+      &nbsp; 更新牌权<br>
+      &nbsp; 更新窗口<br></li>
+    <li md-src-pos="3771..3784">输出赢家 <br></li>
+    <li md-src-pos="3785..3795">结束<br></li>
+   </ol>
+   <h3 id="项目日记-" md-src-pos="3801..3814">项目日记：</h3>
+   <h4 id="20240320-" md-src-pos="3815..3835">2024.03.20</h4>
+   <p md-src-pos="3836..3977"><span md-src-pos="3836..3867">今天写到了确定每个玩家头像的位置函数以及所拥有的第一张牌的位置</span><br><span md-src-pos="3872..3909">完成内容：创建了player类、card类、hand类、allcards类</span><br><span md-src-pos="3914..3950">明天需要继续写player类、card类、hand类、allcards类</span><br><span md-src-pos="3955..3973">并且将所拥有的牌排完序之后进行可视化</span><br></p>
+   <h4 id="20240323-" md-src-pos="3978..3998">2024.03.23</h4>
+   <p md-src-pos="3999..4426"><span md-src-pos="3999..4063">今天完成了对手牌空间的搜索，一开始用card对象作为动作空间但是量太大太复杂了于是放弃这个思路转而向牌的点数（不考虑花色）去搜索</span><br><span md-src-pos="4068..4090">现在的进度已经写到了主玩家可以顺利出牌可视化</span><br><span md-src-pos="4095..4150">接下来写的时候需要注意将main_player和AI之间的initiative和following的关系弄清楚</span><br><span md-src-pos="4155..4216">目前已经实现：初始化牌权谁有大王谁先出牌，主玩家可以出牌，可以和AI比较牌的大小以及判断main_player是否能出牌，</span> <span md-src-pos="4217..4237">以及更新上家出的牌（作为全局变量去使用）</span><br><span md-src-pos="4242..4275">接下来（明天）准备要写：AI起牌阶段出牌规则以及跟牌阶段的跟牌规则</span><br><span md-src-pos="4280..4315">哦对了还有main_player跟牌阶段的代码还没有写千万别忘了！！！</span><br><span md-src-pos="4320..4360">有一点之后写的时候还需要小心注意：在判断牌的大小的时候，只对三带二和顺子进行比较</span><br><span md-src-pos="4365..4422">（相等的情况只要传入的参数顺序不出问题就没啥大问题），其余的比较最大的那个值，但不清楚这么写会不会有什么bug存在</span><br></p>
+   <h3 id="20240330-" md-src-pos="4427..4445">2024.03.30</h3>
+   <p md-src-pos="4446..4561"><span md-src-pos="4446..4514">今天花了差不多半个小时的时间去写了一下建议功能，其实这个功能跟AI出牌差不多，就是分为起牌和跟牌两个阶段去判断其是否要出牌以及出哪一张牌</span><br><span md-src-pos="4519..4557">代码大致框架和AI起牌出牌差不多，直接复制粘贴一下改一改具体的细节就差不多了</span><br></p>
+   <h3 id="一些后记-" md-src-pos="4564..4576">一些后记</h3>
+   <p md-src-pos="4577..4800"><span md-src-pos="4577..4626">基于规则建立扑克牌人工智能是真的难啊（哭死），扑克牌中的玩家和AI需要在巨大的行动空间中进行推理，</span> <span md-src-pos="4627..4664">行动空间不容易被抽象化，不适当的出牌可能会打破其他类别，直接导致输掉一局。</span> <span md-src-pos="4665..4711">这个规则建立真的麻烦，而且还要结合可视化界面就更加繁琐了，之后会对项目规则进行进一步地改进，</span> <span md-src-pos="4712..4750">并且在阶段二的时候用相关机器学习算法让AI显得更加智能，会进行相应的改进的。</span> <span md-src-pos="4751..4796">本人才疏学浅，文件内有相关bug或者逻辑错误，敬请指正；若有相关改进建议，笔者必洗耳恭听。</span><br></p>
+  </div>
+ </body>
+</html>
