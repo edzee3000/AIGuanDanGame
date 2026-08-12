@@ -183,23 +183,24 @@ class GameController:
                 self.hint_indices.clear()
                 return
 
-        # Button clicks
-        btn = self.renderer.get_button_clicked(self.phase, mx, my)
-        if btn is None:
-            return
+        # Button clicks (only during player's turn)
+        if self.phase in (GamePhase.PLAYER_INITIATIVE, GamePhase.PLAYER_FOLLOWING):
+            btn = self.renderer.get_button_clicked(self.phase, mx, my)
+            if btn is None:
+                return
 
-        if btn == "reset":
-            self.player.clear_selection()
-            self.hint_indices.clear()
+            if btn == "reset":
+                self.player.clear_selection()
+                self.hint_indices.clear()
 
-        elif btn == "play":
-            self._player_play()
+            elif btn == "play":
+                self._player_play()
 
-        elif btn == "pass":
-            self._player_pass()
+            elif btn == "pass":
+                self._player_pass()
 
-        elif btn == "hint":
-            self._show_hint()
+            elif btn == "hint":
+                self._show_hint()
 
     # -- player actions ------------------------------------------------------
 

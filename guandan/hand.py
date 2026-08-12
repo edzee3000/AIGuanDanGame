@@ -78,12 +78,10 @@ class Hand:
         }
 
     def _find_singles(self) -> list[list[str]]:
-        pts = self._unique_points()
+        """Every unique rank in hand can be played as a single (including jokers)."""
         return [
             [CardRank.from_point(p).label]
-            for p in pts
-            if CardRank.from_point(p) not in (CardRank.BLACK_JOKER, CardRank.RED_JOKER)
-            or True  # jokers are allowed as singles
+            for p in self._unique_points()
         ]
 
     def _find_pairs(self) -> list[list[str]]:
@@ -186,11 +184,14 @@ class Hand:
         if n == 0:
             return ComboType.INVALID
 
-        sorted_labels = sorted(
-            labels, key=lambda x: CardRank.from_label(x).point, reverse=True
-        )
-        # helper: points for each label
-        pts = [CardRank.from_label(x).point for x in sorted_labels]
+        # Validate all labels
+        try:
+            sorted_labels = sorted(
+                labels, key=lambda x: CardRank.from_label(x).point, reverse=True
+            )
+            pts = [CardRank.from_label(x).point for x in sorted_labels]
+        except KeyError:
+            return ComboType.INVALID
 
         if n == 1:
             return ComboType.SINGLE
